@@ -1,17 +1,15 @@
-import { LightningElement } from 'lwc';
+import { LightningElement ,track} from 'lwc';
 import getAccounts from'@salesforce/apex/AccountController.getAccountList';
 
 export default class paginationDemo3 extends LightningElement {
     accounts;
     allAccounts;
     totalAccounts = 0;
-    pageSize = 5;
+    pageSize = 6;
+    @ track noOfPages = 10 ;
     columns =[
                 { 'label' : 'ID', 'fieldName' : 'Id'},
                 { 'label' : 'Name', 'fieldName' : 'Name'},
-               // { 'label' : 'Account Number', 'fieldName' : 'accountnumber'},
-               // { 'label' : 'Account Source', 'fieldName' : 'source'},
-               // { 'label' : 'Active', 'fieldName' : 'active'},
                 { 'label' : 'Phone', 'fieldName' : 'Phone'}
             ];
 
@@ -46,8 +44,21 @@ export default class paginationDemo3 extends LightningElement {
         const end = this.pageSize*event.detail;
         this.accounts = this.allAccounts.slice(start, end);
     }
+}
 
-    // init(){
+
+
+
+
+
+
+
+
+
+
+
+
+// init(){
     //     getAccounts().then(res=>{
     //         console.log('@@@####### init function first line');
     //         let accounts = res;
@@ -87,5 +98,3 @@ export default class paginationDemo3 extends LightningElement {
     //         this.accounts = this.allAccounts.slice(0,this.pageSize);
     //     });
     // }
-
-}

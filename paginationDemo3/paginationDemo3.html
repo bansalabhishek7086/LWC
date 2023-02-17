@@ -16,9 +16,6 @@
                         <tr key={acc.Id}>
                             <td>{acc.Id}</td>
                             <td>{acc.Name}</td>
-                            <!-- <td>{acc.accountnumber}</td>
-                            <td>{acc.source}</td>
-                            <td>{acc.active}</td> -->
                             <td>{acc.Phone}</td>
                         </tr>
                     </template>
@@ -27,7 +24,7 @@
             
                 <template if:true={totalAccounts} >
                     <div class="slds-float_right slds-size_1-of-1 , slds-p-bottom_large , slds-p-top_small" >
-                    <c-pagination3 totalrecords={totalAccounts} page-size={pageSize} onpagination={handlePagination}></c-pagination3>
+                        <c-pagination3 totalrecords={totalAccounts} page-size={pageSize} no-of-total-pages={noOfPages} onpagination={handlePagination}></c-pagination3>
                     </div>
                 </template>
         </div>

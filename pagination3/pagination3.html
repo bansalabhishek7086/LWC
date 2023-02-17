@@ -3,13 +3,13 @@
     
     <div class="container slds-float_right">
         <p>
-            <lightning-button-icon  size="small" class="slds-p-around_small" variant="bare" disabled={disableleftarrow} onclick={handlePrevious} icon-name="utility:chevronleft"></lightning-button-icon >
+            <lightning-button-icon  size="small" class="slds-p-around_small" variant="bare" disabled={disableLeftArrow} onclick={handlePrevious} icon-name="utility:chevronleft"></lightning-button-icon >
             <span>
                 <template for:each={pageList} for:item="p" for:index="index">
                     <lightning-button key={p} label={p} onclick={handleClick} data-index ={index}></lightning-button>
                 </template>
             </span>
-            <span><lightning-button-icon  size="small" class="slds-p-around_small" variant="bare" onclick={handleNext} disabled={disablerightarrow} icon-name="utility:chevronright"></lightning-button-icon ></span>
+            <span><lightning-button-icon  size="small" class="slds-p-around_small" variant="bare" onclick={handleNext} disabled={disableRightArrow} icon-name="utility:chevronright"></lightning-button-icon ></span>
         </p>
     </div>
 </template>

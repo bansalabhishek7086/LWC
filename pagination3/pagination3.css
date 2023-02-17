@@ -1,29 +1,34 @@
-.pages
+/* .pages
 {
     border-radius: 50%;
     display: inline-block;
     line-height: 2.1rem;
     max-height: 2.8rem;
     padding: 22px
-}
-
+} */
 
 
 lightning-button{
-    --slds-c-button-radius-border: 50%;
-    --slds-c-button-neutral-spacing-inline-end: 16px;
-    --slds-c-button-neutral-spacing-inline-start: 16px;
-    --slds-c-button-text-color: #002f6c;
+    --slds-c-button-radius-border: 0%;
+    --slds-c-button-neutral-spacing-inline-end: 12px;
+    --slds-c-button-neutral-spacing-inline-start: 12px;
+    /* --slds-c-button-text-color: #2b006c; */
+    --slds-c-button-text-color: rgba(83, 12, 12, 0.947);
     --slds-c-button-line-height: 38px;
-    --slds-c-button-neutral-color-background: none;
-    --slds-c-button-neutral-color-border-hover : none;
+    --slds-c-button-neutral-color-background: white;
+    --slds-c-button-neutral-color-border-hover : white;
+    --slds-c-button-text-color-hover : white;
+    --slds-c-button-neutral-color-background-hover :rgba(83, 12, 12, 0.947) ;
+
 }
 
 .currentpage{
-    --slds-c-button-neutral-color-background : #ff6a13;
-    --slds-c-button-neutral-color-background-active : #ff6a13;
+    --slds-c-button-neutral-color-background : rgba(83, 12, 12, 0.947);
+    /* --slds-c-button-neutral-color-background-active : #13ff56; */
     --slds-c-button-text-color: #fff;;
-    --slds-c-button-neutral-color-border-hover : none;
+    /* --slds-c-button-neutral-color-border-hover : none; */
+    --slds-c-button-neutral-color-border-hover : white;
+    --slds-c-button-neutral-color-background-hover :rgba(83, 12, 12, 0.947) ;
 }
 
 .info{
