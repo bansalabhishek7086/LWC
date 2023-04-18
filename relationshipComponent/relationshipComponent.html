@@ -1,0 +1,27 @@
+<template>
+    <lightning-card class="slds-m-around_medium" title="ChildToParentRelationship" icon-name="custom:custom14">
+        <lightning-card class="slds-m-around_medium" title="ParentComponent" icon-name="standard:account">
+            <p class="slds-text-align_center slds-text-title_bold slds-text-font_monospace"> count : {countvalue} </p>
+        </lightning-card>
+   <!-- calling childComp1  -->
+            <c-child-comp1 onsubtract={handleDecrement} 
+                onadd={handleIncrement}  
+                onmultiply={handleMultiply}>
+            </c-child-comp1>
+
+    </lightning-card>
+    <lightning-card class="slds-m-around_medium" title="ParentToChildRelationship" icon-name="custom:custom14">
+        <lightning-card class="slds-m-around_medium" title="ParentComponent" icon-name="standard:account">
+            <!-- <lightning-input  class="slds-p-horizontal_small" type="number" label="Counter" placeholder="Enter a number -" min="0" max="100000" value={startCounter} onchange={handleStartChange}>
+            </lightning-input> -->
+            <p> Child Count value is : {counterForChild} </p>
+                 <lightning-button class="slds-p-horizontal_small" label="Add 100 To Counter" onclick={handleMaximizeCounter}>
+                 </lightning-button>
+        </lightning-card> 
+    <!-- calling childComp2  -->
+            <!-- <c-child-comp2 counter={startCounter}> -->
+            <c-child-comp2 counter={startCounter}
+              onpass={fetchValue}>
+            </c-child-comp2>
+    </lightning-card>
+</template>

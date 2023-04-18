@@ -1,0 +1,156 @@
+<!-- sldsValidatorIgnore -->
+<!-- sldsValidatorIgnore -->
+<template>
+<lightning-card title="Display List of  Contacts " custom-icon="custom:icon13">
+<div class="slds-var-p-horizontal_medium">
+<div class="slds-grid slds-wrap">
+<div class="slds-col slds-size_8-of-12 slds-var-m-bottom_small">
+
+<div style="display: flex;"> <lightning-Input  type="search" placeholder="Search.... " value={ContactName} name="ContactName" class="ContactName" onchange={handleChangeConName} ></lightning-input>
+    <div class="slds-p-around_medium lgc-bg">  
+    Help Text
+    <lightning-helptext content="Enter your Name in search bar "></lightning-helptext>
+    </div>
+</div>
+</div>
+</div>
+</div>
+
+<!-- contact name displaying which we put in search bar below -->
+<h2 style=" font-weight:bold; text-align:center "> Contact Name :- <span style="color:blueviolet"><strong>{currentContactName}</strong></span></h2><br/>
+<h3><strong><span style="color:brown;">{dataNotFound}</span></strong></h3><br/>
+<!-- <h2 class="slds-m-bottom--x-small" style="color:darkslateblue; font-weight:bold; text-align:center">Displaying Contact Records </h2> -->
+<h2 style="color:blue;text-align:center;border: 5px solid dark ;"> Contact Details </h2><br/>
+
+<!--   Data table -->
+<template if:true={conList}>
+<div class="slds-grid slds-var-m-top_medium"  style="height:300px;">
+    
+    <lightning-datatable 
+    key-field="Id"
+        data={conVar}
+        columns={columns}
+        sorted-by={sortBy}
+        sorted-direction={sortDirection}
+        onsort={doSorting}
+        >
+    </lightning-datatable>
+</div>
+</template>
+<template if:true={error}>
+    {error}
+</template>
+
+<!-- Table Pagination  -->
+
+<lightning-layout>
+    <lightning-layout-item>
+        <lightning-button label="Previous" 
+        icon-name="utility:chevronleft"
+        onclick={previousHandler}
+        disabled={disablePrevious}></lightning-button>
+    </lightning-layout-item>
+    <lightning-layout-item flexibility="grow">
+        <!-- <p class="slds-text-align_center">Displaying {currentPage} of {totalPage} Page</p> -->
+        <p class="slds-text-align_center">Displaying {startingRecord} to {endingRecord} of {totalRecordCount} records.</p>
+        <p class="slds-text-align_center">page {page} of {totalPage} </p>
+    </lightning-layout-item>
+    <lightning-layout-item>
+        <lightning-button label="next" 
+        icon-name="utility:chevronright"
+        icon-position="right"
+        onclick={nextHandler}
+        disabled={disableNext}></lightning-button>
+    </lightning-layout-item>
+</lightning-layout>
+
+
+<br/><br/>
+</lightning-card>
+</template>
+
+
+
+<!--  
+<table class="slds-table slds-table_cell-buffer slds-table_bordered" border="1" cellspacing="0" cellpadding="0" bordercolor="#ccc" style="border-collapse:collapse;">
+<thead>
+<tr>
+<th>Id</th>
+<th>First Name</th>
+<th>Last Name</th>
+</tr>
+</thead>
+<tbody>
+<template for:each={records} for:item="conItem">
+<tr key={conItem.Id}>
+<td>{conItem.Id}</td>
+<td>{conItem.FirstName}</td>
+<td>{conItem.LastName}</td>
+</tr>
+</template>
+</tbody>
+</table> 
+-->
+
+
+<!-- <div class="slds-float_right slds-grid slds-p-top_x-small slds-m-bottom_medium">
+<lightning-button
+variant="neutral"
+title="First"
+label="First"
+icon-name="utility:left"
+icon-position="left"
+onclick={onFirst}>
+</lightning-button>
+
+<lightning-button
+variant="neutral"
+title=""
+label=""
+icon-name="utility:chevronleft"
+icon-position="left"
+onclick={onPrev}>
+</lightning-button>
+
+<lightning-button
+class="slds-p-horizontal_x-small"
+label="1"
+onclick={processMe}>
+</lightning-button>
+
+<h1 style="color: white">......</h1>
+<template iterator:it={pageList}>
+<lightning-button
+class="slds-p-horizontal_x-small"
+key={it.value}
+label={it.value}
+onclick={processMe}>
+</lightning-button>
+</template>
+
+<h1 style="color: white;">......</h1>
+<lightning-button
+class="slds-p-horizontal_x-small"
+label={totalPages}
+onclick={processMe}>
+</lightning-button>
+
+<lightning-button
+variant="neutral"
+title=""
+label=""
+icon-name="utility: chevronright"
+icon-position="right"
+onclick={onNext}>
+</lightning-button>
+
+<lightning-button
+variant="neutral"
+title="Last"
+label="Last"
+icon-name="utility:right"
+icon-position="right"
+onclick={onLast}>
+</lightning-button>
+
+</div> -->

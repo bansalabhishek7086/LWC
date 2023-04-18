@@ -1,0 +1,39 @@
+<!-- <template>
+    <lightning-card title="Pagination demo contact" icon-name="custom:custom63">
+        <div class="slds-var-m-around_medium">
+            <template if:true={visibleContacts}>
+                <template for:each={visibleContacts} for:item="contact">
+                    <p key={contact.Id}>{contact.Name}</p>
+                </template>
+            </template>
+            <div slot="footer" class="slds-var-m-vertical_medium">
+                <template if:true={totalContacts}>
+                    <c-pagination records={totalContacts} page-size={pageSize} onupdate={updateContactHandler}></c-pagination>
+                </template>
+            </div>
+        </div>
+    </lightning-card>
+</template> -->
+
+
+
+
+
+
+
+
+
+<template>
+    <lightning-card title="Pagination demo contact" icon-name="custom:custom63">
+        <div class="slds-var-m-around_medium">
+            <template if:true={visibleContacts}>
+                <template for:each={visibleContacts} for:item="contact">
+                    <p key={contact.Id}>{contact.Name}</p>
+                </template>
+            </template>
+            <div slot="footer" class="slds-var-m-vertical_medium">
+                <c-pagination records={totalContacts} onupdate={updateContactHandler}></c-pagination>
+            </div>
+        </div>
+    </lightning-card>
+</template>

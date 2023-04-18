@@ -1,0 +1,157 @@
+<template>
+    <!-- progress Bar    pattern=^((?!test).)*$ pattern=^(?!\s*test\s*$).*  -->
+    <lightning-card title="Create Lead Form " icon-name="custom:custom14">
+        <div class="container">
+            <div class=" bullet bullet1" onclick={ClickOnStep1} >
+                <span>1</span>
+            </div>
+            <div class="step1 slds-progress-bar "  onclick={handleOnStepClick1} aria-valuemin="0" aria-valuemax="100" aria-valuenow="0" aria-label="\{{Placeholder for description of progress bar}}" role="progressbar">
+                <span class="slds-progress-bar__value" style="width:0%">
+                    <span class=" slds-assistive-text ">Progress: 0%</span>
+                </span>
+            </div>
+                <!-- <div class="check fas fa-check"></div> -->
+            <div class="bullet bullet2" onclick={ClickOnStep2}>
+                <span>2</span>
+            </div>
+            <div class=" step2 slds-progress-bar" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0" aria-label="\{{Placeholder for description of progress bar}}" role="progressbar">
+                <span class="slds-progress-bar__value" style="width:0%">
+                    <span class="slds-assistive-text">Progress: 0%</span>
+                </span>
+            </div>
+                <!-- <div class="check fas fa-check"> </div> -->
+                <div class="bullet bullet3" onclick={ClickOnStep3}>
+                    <span>3</span>
+                </div>
+            <div class="step3 slds-progress-bar" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0" aria-label="\{{Placeholder for description of progress bar}}" role="progressbar">
+                <span class="slds-progress-bar__value" style="width:0%">
+                    <span class="slds-assistive-text">Progress: 0%</span>
+                </span>
+            </div>
+                <!-- <div class="check fas fa-check"></div> -->
+            <div class="bullet bullet4" onclick={ClickOnStep4}>
+                <span>4</span>
+            </div>
+                <!-- <div class="check fas fa-check"></div> -->
+        </div>   
+</lightning-card> 
+    <!-- <lightning-card>
+        <lightning-progress-indicator current-step={currentStep} type="base" variant="base">
+            <lightning-progress-step label="Step 1" value="1" onclick={handleOnStepClick}></lightning-progress-step>
+            <lightning-progress-step label="Step 2" value="2" onclick={handleOnStepClick}></lightning-progress-step>
+            <lightning-progress-step label="Step 3" value="3" onclick={handleOnStepClick}></lightning-progress-step>
+            <lightning-progress-step label="Step 4" value="4" onclick={handleOnStepClick}></lightning-progress-step>
+        </lightning-progress-indicator>       
+    </lightning-card> -->
+     <!-- Progress Bar Ends -->
+     <!-- Lead Object Form Starts -->
+    <template if:true={displayForm}>
+        <lightning-card title="Become a Partner" style="margin-left: 10px" >
+            <div class="slds-m-around_small "> 
+                <div class="slds-m-left_medium slds-m-vertical_small">  Current page of form :- {currentPage}</div>
+                    <!-- Lead Form Page One -->
+                <template if:true={expression1}>
+                        <div class="slds-grid slds-wrap ">
+                            <!-- <div class="DisplayInLine"> -->
+                
+                                <div class="slds-col slds-size_1-of-2  slds-p-left_medium slds-p-right_xx-large">
+                                    <lightning-input class="validate" pattern="[ a-zA-Z0-9]+" message-when-pattern-mismatch="Please enter a valid Name" type="text" label="First Name" name="FirstName" value={therecord.FirstName} placeholder="Enter first name"  onchange={handleChange}></lightning-input> 
+                                </div>
+                                <div class="slds-col slds-size_1-of-2 slds-p-left_xx-large slds-p-right_medium">
+                                    <lightning-input class="validate" pattern="[ a-zA-Z0-9]+" message-when-pattern-mismatch="Please enter a valid Name" type="text" label="Last Name" name="LastName" value={therecord.LastName} placeholder="Enter Last name"   onchange={handleChange} required ></lightning-input>
+                                </div>
+                            <!-- </div> -->
+                                <div class="slds-col slds-size_1-of-2 slds-p-left_medium slds-p-right_xx-large">
+                                    <lightning-input class="validate" pattern=^(?!\s*[tT][eE][sS][tT]\s*$).*
+
+                                    message-when-pattern-mismatch="Please enter a valid Company Name" type="text" label="Company"  name="Company" value={therecord.Company} placeholder="Enter Company name"  onchange={handleChange} required></lightning-input> 
+                                    <!-- <lightning-input class="validate" pattern="[ a-zA-Z0-9]+" message-when-pattern-mismatch="Please enter a valid Company Name" type="text" label="Company"  name="Company" value={therecord.Company} placeholder="Enter Company name"  onchange={handleChange} required></lightning-input>  -->
+                                </div>
+                        </div>
+                                <div class="slds-m-left_medium slds-m-vertical_medium">
+                                    <lightning-button type="submit" variant="brand" label="Next" onclick={handleNext}></lightning-button>
+                                </div>
+                </template>
+            <!-- lead Form Page Two -->
+                <template if:true={expression2}>
+                        <div class="slds-grid slds-wrap">
+                            <div class="slds-col slds-size_1-of-2  slds-p-left_medium slds-p-right_xx-large">
+                                <lightning-input class="validate" pattern="[0-9]{10}$" message-when-pattern-mismatch="Please enter a valid phone number" type="Phone" label="Phone" name="Phone" value={therecord.Phone} placeholder="Enter Phone number"  onchange={handleChange}></lightning-input> 
+                            </div>
+                            <div class="slds-col slds-size_1-of-2 slds-p-left_xx-large slds-p-right_medium">
+                                <lightning-input class="validate" pattern="[0-9]{10}$" message-when-pattern-mismatch="Please enter a valid Mobile number" type="Phone" label="MobilePhone" name="MobilePhone" value={therecord.MobilePhone} placeholder="Enter Mobile number"  onchange={handleChange}></lightning-input> 
+                            </div>
+                        </div>
+                            <div class="slds-m-left_medium slds-m-vertical_medium">
+                                <lightning-button class="slds-m-top_small" label="Previous" onclick={handlePrevious}></lightning-button>
+                                <lightning-button class="slds-m-left_medium" type="submit" variant="brand" label="Next" onclick={handleNext}></lightning-button>
+                            </div>
+                </template>
+                <!-- Lead Form Page Three -->
+                <template if:true={expression3}>
+                        <div class="slds-grid slds-wrap">
+                            <div class="slds-col slds-size_1-of-2 slds-p-left_medium slds-p-right_xx-large">
+                                <lightning-input class="validate" pattern="[ a-zA-Z0-9]+" message-when-pattern-mismatch="Please enter a valid Input " type="text" label="CurrentGenerators" name="CurrentGenerators__c" value={therecord.CurrentGenerators__c} placeholder="Enter first name"  onchange={handleChange}></lightning-input>
+                            </div>
+                            <!-- <lightning-combobox
+                                name="Status"
+                                label="Status"
+                                value="therecord.Status"
+                                placeholder="Choose Status"
+                                options={options}
+                                onchange={handleChange}
+                                required >
+                            </lightning-combobox>  -->
+                            <div class="slds-col slds-size_1-of-2 slds-p-left_xx-large slds-p-right_medium">
+                                <lightning-combobox class="validate"
+                                name="Status"
+                                label="Status"
+                                value={therecord.Status}
+                                placeholder="Choose Status"
+                                options={levelPicklistValues.data.values}
+                                onchange={handleChange}
+                                required >
+                            </lightning-combobox>                        
+                            </div>
+                            
+                        </div>
+                            <div class="slds-m-left_medium slds-m-vertical_medium">
+                                <lightning-button class="slds-m-top_small" label="Previous" onclick={handlePrevious}></lightning-button>
+                                <lightning-button class="slds-m-left_medium" type="submit" variant="brand" label="Next" onclick={handleNext}></lightning-button>
+                            </div>
+                </template>   
+        <!-- Lead Form Page Four -->
+                <template if:true={expression4}>
+                        <div class="slds-grid slds-wrap">
+                            <div class="slds-col slds-size_1-of-2 slds-p-left_medium slds-p-right_xx-large">
+                                <lightning-input class="validate" pattern="[ a-zA-Z0-9,#.-]+" message-when-pattern-mismatch="Please enter a valid Name" type="text" label="Description"  name="Description" value={therecord.Description} placeholder="Enter Desc"  onchange={handleChange}></lightning-input> 
+                            </div>
+                            <div class="slds-col slds-size_1-of-2 slds-p-left_xx-large slds-p-right_medium">
+                                <lightning-input class="validate" type="email" label="Email" name="Email" value={therecord.Email} placeholder="Enter Email" pattern="[A-Za-z0-9._-]+@[a-z0-9-]+\.[a-z]{2,}$" message-when-pattern-mismatch="Please enter a valid email" onchange={handleChange} required ></lightning-input> 
+                            </div>
+                        </div>
+                            <div class="slds-m-left_medium slds-m-vertical_medium">
+                                <lightning-button class="slds-m-top_small" label="Previous" onclick={handlePrevious}></lightning-button>
+                                <lightning-button class="slds-m-left_medium" type="submit" variant="brand" label="Submit" onclick={handleSubmit}></lightning-button>
+                            </div>
+                </template>   
+            </div>
+        </lightning-card>
+    </template>
+     <!-- Lead Oject form Ends -->
+
+     <!-- ThankYou Screen -->
+    <template if:true={thankyouScreen}>
+        <div class="slds-align_absolute-center  slds-text-heading_large" style="background-color: white; height: 400px;">
+            Thank You your Form has been Submitted !!
+        </div> 
+    </template>
+    <!-- Lightning Spinner -->
+    <template if:true={spin}>
+        <div>
+            <lightning-spinner alternative-text="Form is being Loaded..." variant="brand" size="medium"></lightning-spinner>
+        </div>
+    </template>
+    
+         
+</template>

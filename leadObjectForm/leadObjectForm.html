@@ -1,0 +1,174 @@
+<template>
+    <!-- progress Bar -->
+    <!-- <lightning-card>
+        <lightning-progress-indicator current-step={currentStep} type="base" variant="base">
+            <lightning-progress-step label="Step 1" value="1" onclick={handleOnStepClick}></lightning-progress-step>
+            <lightning-progress-step label="Step 2" value="2" onclick={handleOnStepClick}></lightning-progress-step>
+            <lightning-progress-step label="Step 3" value="3" onclick={handleOnStepClick}></lightning-progress-step>
+            <lightning-progress-step label="Step 4" value="4" onclick={handleOnStepClick}></lightning-progress-step>
+        </lightning-progress-indicator>       
+    </lightning-card> -->
+
+    <lightning-card title="Create Lead Record" icon-name="custom:custom14">
+        <div class="container" >
+                <div class=" bullet bullet1" data-id="40 years" >
+                    <span data-id="40 years" >1</span>
+                </div>
+                <div class="bullet5 slds-progress-bar " aria-valuemin="0" aria-valuemax="100" aria-valuenow="0"  role="progressbar">
+                    <span class="slds-progress-bar__value" style="width:0%">
+                        <span class=" slds-assistive-text ">Progress: 0%</span>
+                    </span>
+                </div>
+            <div class="bullet bullet2">
+                <span>2</span>
+            </div>
+            <div class=" bullet6 slds-progress-bar" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0"  role="progressbar">
+                <span class="slds-progress-bar__value" style="width:0%">
+                    <span class="slds-assistive-text">Progress: 0%</span>
+                </span>
+            </div>
+            <div class="bullet bullet3">
+                <span>3</span>
+            </div>
+            <div class="bullet7 slds-progress-bar" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0"  role="progressbar">
+                <span class="slds-progress-bar__value" style="width:0%">
+                    <span class="slds-assistive-text">Progress: 0%</span>
+                </span>
+            </div>
+            <div class="bullet bullet4">
+                <span>4</span>
+            </div>
+        </div>
+    </lightning-card>
+     <!-- Progress Bar Ends -->
+
+     <!-- Lead Object Form Starts -->
+    <template if:true={displayForm}>
+        <lightning-card title="Become a Partner">
+            <div>  Current page of form :- {currentPage}</div>
+            <div>  Lead First Name :- {therecord.FirstName}</div>
+            <div>  Lead Last Name  :- {therecord.LastName}</div>
+                <!-- Lead Form Page One -->
+            <template if:true={expression1}>
+                    <div class="slds-grid slds-wrap">
+                        <template if:true={inputData}>
+                            <template for:each={inputData} for:item="field">
+                                <div key={field.fieldLabel} class="slds-col slds-size_1-of-2">
+                                    <template if:true={field.isOther}>
+                                        <lightning-input type={field.fieldType} label={field.fieldLabel} value={field.fieldValue} placeholder={field.fieldLabel} name={field.fieldApiName} onchange={handleChange} required={field.isRequired}></lightning-input>
+                                    </template>
+                                    <template if:true={field.isPhone}>
+                                        <lightning-input type={field.fieldType} label={field.fieldLabel} value={field.fieldValue} name={field.fieldApiName} onchange={handleChange} pattern={field.pattern} placeholder={field.placeholder} required={field.isRequired}></lightning-input>
+                                    </template>
+                                    <template if:true={field.isPicklist}>
+                                        <lightning-combobox name={field.fieldApiName} label={field.fieldLabel} value={field.fieldValue} placeholder={field.fieldLabel} options={field.picklistOptions} onchange={handleChange} required={field.isRequired} ></lightning-combobox>
+                                    </template>
+                                    <!-- <template if:true={field.islookup}>
+                                        <c-custom-lookup obj-name={field.lookupObject} label={field.fieldLabel} search-placeholder="Search" icon-name="standard:account" selected-name-parent={lookupName} is-value-selected-parent={lookupSelected} onlookupselected={handleAccountSelection} onlookupremoved={removeAccount} name={field.fieldApiName} value={field.fieldValue}> </c-custom-lookup>
+                                    </template> -->
+                                </div>
+                            </template>
+                        </template>
+                        <lightning-combobox name="Account__c" label="Account Name Lookup" value={therecord.Account__c} placeholder="Search it" options={AccountOptions} onchange={handleChange} ></lightning-combobox>
+                        <lightning-combobox name="Contact__c" label="Contact Name Lookup" value={therecord.Contact__c} placeholder="Search it" options={filterConOptions} onchange={handleChange} ></lightning-combobox>
+                        <!-- <div class="slds-col slds-size_1-of-2">
+                            <lightning-input type="text" label="First Name" name="FirstName"  value={therecord.FirstName} placeholder="Enter first name"  onchange={handleChange}></lightning-input> 
+                        </div>
+                        <div class="slds-col slds-size_1-of-2">
+                            <lightning-input type="text" label="Last Name" name="LastName" value={therecord.LastName} placeholder="Enter Last name"   onchange={handleChange} required ></lightning-input>
+                            <lightning-input type="text" label="Company" name="Company" value={therecord.Company} placeholder="Enter Company name"  onchange={handleChange} ></lightning-input>
+                        </div> -->
+                
+                    </div>
+                    <div>
+                        <lightning-button type="submit" variant="brand" label="Next" onclick={handleNext}></lightning-button>
+                    </div>
+            </template>
+           <!-- lead Form Page Two -->
+            <template if:true={expression2}>
+                <!-- <lightning-record-edit-form object-api-name="Lead">
+                    <div class="slds-grid slds-wrap">
+                        <template if:true={inputData}>
+                            <template for:each={inputData} for:item="field">
+                                <div key={field.fieldLabel} class="slds-col slds-size_1-of-2">
+                                    <lightning-input-field name={field.fieldApiName} field-name={field.fieldApiName} value={field.fieldValue} onchange={handleChange}></lightning-input-field>
+                                </div>
+                            </template>
+                            <lightning-input-field variant="label-hidden" id="AccountId" field-name="PartnerAccountId" onchange={handleChange} required></lightning-input-field>
+                        
+                        </template>
+                    </div>
+                </lightning-record-edit-form> -->
+                    <div class="slds-grid slds-wrap">
+                        <div class="slds-col slds-size_1-of-2">
+                            <lightning-input type="text" label="Phone" name="Phone" value={therecord.Phone} onblur={formatPhoneNumber}  placeholder="Enter Phone number"  onchange={handleChange}></lightning-input> 
+                            <!-- <c-custom-lookup obj-name="Account" label="chakshu" search-placeholder="Search Accounts" icon-name="standard:account" onlookupselected={handleAccountSelection} name="Account_Name_Lookup__c" onchange={handleChange}> </c-custom-lookup> -->
+                        </div>
+                        <div class="slds-col slds-size_1-of-2">
+                            <lightning-input type="text" label="mobile" name="MobilePhone" pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}" value={therecord.MobilePhone}  placeholder="Enter Mobile number"  onchange={handleChange}></lightning-input> 
+                        </div>
+
+                    </div>
+                    <!-- <c-custom-lookup obj-name="Account" search-placeholder="Search Accounts" icon-name="standard:account" onlookupselected={handleAccountSelection}> </c-custom-lookup> -->
+                    <lightning-record-edit-form object-api-name="Lead">
+                        <lightning-input-field field-name="PartnerAccountId" variant="label-hidden" onchange={handleAccountSelection} required></lightning-input-field>
+                    </lightning-record-edit-form>
+                    <div>
+                        <lightning-button class="slds-m-top_small" label="Previous" onclick={handlePrevious}></lightning-button>
+                        <lightning-button type="submit" variant="brand" label="Next" onclick={handleNext}></lightning-button>
+                    </div>
+            </template>
+              <!-- Lead Form Page Three -->
+            <template if:true={expression3}>
+                    <div class="slds-grid slds-wrap">
+                        <!-- <lightning-combobox name="Status" label="Status" value={therecord.Status} options={StatusOptions} onchange={handleChange} ></lightning-combobox> -->
+                        <!-- <c-lwc-custom-lookup
+                            name="Account_Name_Lookup__c"
+                            field-label="PartnerAccountId"
+                            child-object-api-name="Lead"
+                            target-field-api-name="Account_Name_Lookup__c"
+                            value={therecord.Account_Name_Lookup__c}
+                            required="false"
+                            add-to-recent="true"
+                            onchange={handleChange}
+                            onvalueselected={handleSelectedLookup}
+                    >
+                    </c-lwc-custom-lookup> -->
+                        <lightning-input type="text" label="Description" name="Description" value={therecord.Description} placeholder="Enter Desc"  onchange={handleChange}></lightning-input> 
+                    </div>
+                    <div>
+                        <lightning-button class="slds-m-top_small" label="Previous" onclick={handlePrevious}></lightning-button>
+                        <lightning-button type="submit" variant="brand" label="Next" onclick={handleNext}></lightning-button>
+                    </div>
+            </template>   
+                    <!-- Lead Form Page Four -->
+            <template if:true={expression4}>
+                    <div class="slds-grid slds-wrap">
+                        <lightning-input type="text" label="Description" name="Description" value={therecord.Description} placeholder="Enter Desc"  onchange={handleChange}></lightning-input> 
+                        <lightning-input type="email" label="Email" name="Email" value={therecord.Email} placeholder="Enter Comments"  onchange={handleChange}></lightning-input> 
+
+                    </div>
+                    <div>
+                        <lightning-button class="slds-m-top_small" label="Previous" onclick={handlePrevious}></lightning-button>
+                        <lightning-button type="submit" variant="brand" label="Submit" onclick={handleSubmit}></lightning-button>
+                    </div>
+            </template>   
+        </lightning-card>
+    </template>
+     <!-- Lead Oject form Ends -->
+
+     <!-- ThanYou Screen -->
+    <template if:true={thankYouScreen}>
+        <div class="slds-align_absolute-center  slds-text-heading_large" style="background-color: white; height: 400px;">
+            ThankYou your Form hasbeen Submitted
+        </div>
+    </template>
+    <!-- Lightning Spinner -->
+    <template if:true={spin}>
+        <div>
+            <lightning-spinner alternative-text="Form is being Loaded..." variant="brand" size="medium"></lightning-spinner>
+        </div>
+    </template>
+    
+         
+</template>

@@ -1,0 +1,29 @@
+<template>
+    <lightning-card title="LWC Component " icon-name="custom:custom14" style="margin-left: 10px">
+        <p class="slds-m-around_small slds-p-around_medium slds-align_absolute-center  slds-text-heading_small"> This component is used for Test .. </p>
+   
+    <template if:true={allData}>
+        <!-- <template for:each={allData} for:item="data">
+            <div key={data.allObjectNames} > -->
+        <!-- <div class="body" style="height:300px;">        
+            <lightning-datatable data={conList} columns={columns} key-field="Id">
+            </lightning-datatable>
+        </div> -->
+        <div class="slds-m-around_small slds-p-around_medium">
+            <lightning-combobox  label="sObject"  placeholder="Search...." options={StatusOptions} onchange={handleChange} ></lightning-combobox>
+        </div>
+        <div class="body slds-m-around_small slds-p-around_medium" style="height:400px ; width: 300px ;">        
+            <lightning-datatable data={objData} columns={columns} key-field="Id">
+            </lightning-datatable>
+        </div>
+
+            <!-- </div>
+        </template> -->
+    </template>
+</lightning-card>
+</template>
+
+
+
+
+

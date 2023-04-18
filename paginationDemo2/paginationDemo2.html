@@ -1,0 +1,36 @@
+<template>
+    <lightning-card title="Pagination demo2 " icon-name="custom:custom63">
+        <!-- <div class="slds-p-around_large "> -->
+        <div class="slds-p-around_xx-large">
+            <table>
+                <thead>
+                    <tr>
+                        <template for:each={columns} for:item="col">
+                            <th key={col.fieldName}>{col.label}</th>
+                        </template>
+                    </tr>
+                </thead>
+                
+                <tbody>
+                    <template for:each={accounts} for:item="acc">
+                        <tr key={acc.Id}>
+                            <td>{acc.Id}</td>
+                            <td>{acc.Name}</td>
+                            <!-- <td>{acc.accountnumber}</td>
+                            <td>{acc.source}</td>
+                            <td>{acc.active}</td> -->
+                            <td>{acc.Phone}</td>
+                        </tr>
+                    </template>
+                </tbody>
+            </table>
+            
+                <template if:true={totalAccounts} >
+                    <div class="slds-float_right slds-size_1-of-1 , slds-p-bottom_large , slds-p-top_small" >
+                    <c-pagination2 totalrecords={totalAccounts} page-size={pageSize} onpagination={handlePagination}></c-pagination2>
+                    </div>
+                </template>
+        </div>
+        <!-- </div> -->
+    </lightning-card>
+</template>

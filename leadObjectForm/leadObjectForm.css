@@ -1,0 +1,28 @@
+.container{
+    width: 100% ;
+    background: #fff;
+    border-radius: 5px;
+    text-align: center;
+    padding: 50px 35px 40px 35px;
+    display: inline-flex;
+    align-items: center;
+  }
+  
+  
+  .bullet{
+    position: relative;
+    height: 35px;
+    width: 35px;
+    border: 2px solid black;
+    display: inline-block;
+    border-radius: 50%;
+    transition: 0.2s;
+  padding: 5px;
+    }
+  
+  .slds-progress-bar{
+  width: 33%;
+  }
+  .slds-button{
+    margin-left: 40px;
+  }

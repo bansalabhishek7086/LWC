@@ -1,0 +1,90 @@
+<!-- 
+<template>
+    <lightning-card title="Contact List">
+        <lightning-button variant="brand" label="Click Me" title="Primary action" onclick={handleClick} class="slds-m-left_x-small"></lightning-button>
+    </lightning-card>
+        <template if:true={isShowModal}>
+            <section role="dialog" tabindex="-1" aria-labelledby="modal-heading-01" aria-modal="true" aria-describedby="modal-content-id-1" class="slds-modal slds-fade-in-open slds-modal_medium">
+                <div class="slds-modal__container">
+
+                    <button class="slds-button slds-button_icon slds-modal__close slds-button_icon-inverse">
+                        <lightning-icon icon-name="utility:close" title="medium (default)"  variant="inverse" aria-hidden="true" onclick={handleModal}></lightning-icon>
+                        </button>
+
+                        <header class="slds-modal__header">
+                        <h2 id="modal-heading-01" class="slds-modal__title slds-hyphenate">List of Contacts</h2>
+                    </header>
+
+                    <div style="height: 300px" class="slds-modal__content slds-var-p-around_medium" id="modal-content-id-1">
+                        <template if:true={datas}>
+                            <lightning-datatable 
+                                key-field="Id"
+                                data={datas}
+                                columns={columns}
+                                hide-checkbox-column="true"
+                                >                       
+                            </lightning-datatable>
+                        </template>
+                        <template if:true={errors}>
+                            <p>{errors}</p>
+                        </template>
+                    </div>
+                    <div class="slds-modal__footer">
+                        <lightning-button variant="brand" label="Next" title="Primary action" onclick={navigateToUrl} class="slds-m-left_x-small"></lightning-button>
+                    </div>
+                </div>
+            </section>
+            <div class="slds-backdrop slds-backdrop_open" role="presentation"></div>
+        </template>
+</template>
+
+ -->
+
+ 
+    <template>
+    <lightning-card title="Contact List">
+        <lightning-button variant="brand" label="Click Me" title="Primary action" onclick={handleClick} class="slds-m-left_x-small"></lightning-button>
+    </lightning-card>
+
+    <template if:true={isShowModal}>
+        <lightning-modal-header label="My Contact List">
+        </lightning-modal-header>
+        <lightning-modal-body>
+            <template if:true={datas}>
+                <lightning-datatable 
+                    key-field="Id"
+                    data={datas}
+                    columns={columns}
+                    hide-checkbox-column="true"
+                    >                       
+                </lightning-datatable>
+            </template>
+            <template if:true={errors}>
+                <p>{errors}</p>
+            </template>
+        </lightning-modal-body>
+        <lightning-modal-footer>
+            <lightning-button variant="brand" label="Next" title="Primary action" onclick={navigateToUrl} class="slds-m-left_x-small"></lightning-button>
+        </lightning-modal-footer>
+    </template>
+</template>
+ 
+
+
+<!-- sldsValidatorIgnore -->
+<!-- <template>
+    <lightning-card title="Contact List ">
+        <template if:true={data}>
+            <lightning-datatable
+                key-field="Id"
+                data={data}
+                columns={columns}
+                hide-checkbox-column="true"
+                >
+            </lightning-datatable>
+        </template>
+            <template if:true={errors}>
+                <p>{errors}</p>
+            </template>
+    </lightning-card>
+</template> -->

@@ -1,0 +1,14 @@
+<template>
+    <lightning-card title="Create Record With Apex" icon-name="standard:Contact">
+        <div class="slds-p-around_x-small">
+            <lightning-input type="text" label="First Name" name="FirstName" value={therecord.FirstName} placeholder="Enter first name"  onchange={handleChange}></lightning-input>
+            <lightning-input type="text" label="Last Name"  name="LastName" value={therecord.LastName} placeholder="Enter Last name"   onchange={handleChange} required></lightning-input>
+            <lightning-input type="email" label="Email Address" name="Email" value={therecord.Email} placeholder="Enter your email here " onchange={handleChange} ></lightning-input><br>
+                <!-- <lightning-button label="Next" onclick={handleNext} ></lightning-button> -->
+<br><br>
+                <lightning-button label="Create Contact" onclick={handleSubmit} ></lightning-button>
+                <lightning-button class="slds-m-top_small" label="Cancel" onclick={handleReset}>  </lightning-button>   
+        </div>
+
+    </lightning-card>
+</template>

@@ -1,0 +1,68 @@
+.container{
+    width: 100%;
+    background: #fff;
+    border-radius: 5px;
+    text-align: center;
+    padding: 50px 35px 40px 35px;
+    display: inline-flex;
+    align-items: center;
+  }
+  
+  
+  .bullet{
+    position: relative;
+    height: 35px;
+    width: 35px;
+    border: 2px solid black;
+    display: inline-block;
+    border-radius: 50%;
+    transition: 0.2s;
+  padding: 5px;
+  
+    }
+  
+  .slds-progress-bar{
+  width: 33%;
+  }
+  .slds-button{
+    margin-left: 40px;
+  }
+
+
+/* div.DisplayInLine{
+   display: flex;
+} */
+/* <!-- density="compact" --> */
+
+  /* element.style.slds-no-flex {
+    font-size: large;
+    margin-left: 8px;
+  } */
+
+
+  /* .slds-size_1-of-3 {
+    width: 40%;
+} */
+
+/* .slds-size_1-of-2 {
+  width: 40%;
+} */
+
+ .slds-form-element__label {
+    font-size: large;
+    margin-left: 8px;
+}
+.slds-text-heading_small{
+  margin-left: 12px;
+}
+/* lightning-input.label.slds-form-element__label  {
+
+  font-size: large;
+  margin-left: 8px;
+} */
+
+
+  /* label{
+
+  }
+   */

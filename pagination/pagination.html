@@ -1,0 +1,77 @@
+<!-- <template>
+    <span class="info slds-float_left">Viewing {startrange}-{endrange} of {totalrecords}</span>
+    
+    <div class="container slds-float_right">
+        <p>
+            <lightning-button-icon  size="small" class="slds-p-around_small" variant="bare" disabled={disableleftarrow} onclick={handlePrevious} icon-name="utility:chevronleft"></lightning-button-icon >
+            <span>
+                <template for:each={pageList} for:item="p" for:index="index">
+                    <lightning-button key={p} label={p} onclick={handleClick} data-index ={index}></lightning-button>
+                </template>
+            </span>
+            <span><lightning-button-icon  size="small" class="slds-p-around_small" variant="bare" onclick={handleNext} disabled={disablerightarrow} icon-name="utility:chevronright"></lightning-button-icon ></span>
+        </p>
+    </div>
+</template> -->
+
+
+
+<template>
+    <lightning-layout>
+        <lightning-layout-item class="PrevIcon">
+            <lightning-button  icon-name="utility:chevronleft" onclick={previousHandler} disabled={disablePrevious}></lightning-button>
+        </lightning-layout-item>
+
+        <lightning-layout-item class="slds-m-left_x-small" >
+            <lightning-button label="1" onclick={first} disabled={disableFirst}></lightning-button>
+        </lightning-layout-item>
+
+        <lightning-layout-item class="slds-m-left_x-small">
+            <lightning-button label="2" onclick={second} disabled={disableSecond}></lightning-button>
+        </lightning-layout-item>
+
+        <lightning-layout-item class="slds-m-left_x-small">
+            <lightning-button label="3" onclick={third} disabled={disableThird}></lightning-button>
+        </lightning-layout-item>
+
+        <lightning-layout-item class="slds-m-left_x-small">
+            <lightning-button label="4" onclick={fourth} disabled={disableFourth}></lightning-button>
+        </lightning-layout-item>
+
+        <lightning-layout-item class="slds-m-left_x-small">
+            <lightning-button label="5" onclick={fifth} disabled={disableFifth}></lightning-button>
+        </lightning-layout-item>
+
+        <lightning-layout-item class="slds-m-left_x-small">
+            <lightning-button label="6" onclick={six} disabled={disableSix}></lightning-button>
+        </lightning-layout-item>
+
+        <lightning-layout-item class="slds-m-left_x-small">
+            <lightning-button label="7" onclick={seven} disabled={disableSeven}></lightning-button>
+        </lightning-layout-item>
+
+        <lightning-layout-item class="slds-m-left_x-small">
+            <lightning-button label="8" onclick={eight} disabled={disableEight}></lightning-button>
+        </lightning-layout-item>
+
+        <lightning-layout-item class="slds-m-left_x-small">
+            <lightning-button label="9" onclick={nine} disabled={disableNine}></lightning-button>
+        </lightning-layout-item>
+
+        <lightning-layout-item class="slds-m-left_x-small">
+            <lightning-button label="10" onclick={ten} disabled={disableTen}></lightning-button>
+        </lightning-layout-item>
+
+
+        
+
+        <lightning-layout-item class="slds-m-left_x-small">
+            <lightning-button icon-name="utility:chevronright"  icon-position="right" onclick={nextHandler} disabled={disableNext}></lightning-button>
+        </lightning-layout-item>
+    </lightning-layout>
+</template>
+
+
+<!-- <lightning-layout-item flexibility="grow">
+            <p class="slds-text-align_center">Displaying {currentPage} of {totalPage} Page</p>
+        </lightning-layout-item> -->
